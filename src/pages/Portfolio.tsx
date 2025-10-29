@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowUp } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -170,8 +171,9 @@ export default function Portfolio() {
           {/* Portfolio Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredItems.map(item => (
-              <div
+              <Link
                 key={item.id}
+                to={`/project/${item.id}`}
                 className="group relative overflow-hidden cursor-pointer bg-gray-100"
               >
                 <div className="aspect-[3/4] overflow-hidden">
@@ -187,7 +189,7 @@ export default function Portfolio() {
                     <h3 className="text-xl font-light">{item.title}</h3>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
